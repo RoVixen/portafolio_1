@@ -4,6 +4,7 @@ import "./css/sidebar_menu.css";
 
 export function SidebarMenu({}){
     const [open,setOpen] = useState(false);
+    const [active,setActive] = useState("section1");
 
     const toggleMenu=(o=false)=>{
         setOpen(o);
@@ -11,11 +12,29 @@ export function SidebarMenu({}){
     
     useEffect(()=>{
       document.addEventListener("scroll",(ev)=>{
-        document.querySelectorAll("[data-section='section3']").forEach(elem=>{
-          console.log(elem.scrollTop+" / "+elem.offsetHeight);
+
+        let current=active;
+
+        const halfH=-(window.visualViewport.height/3);
+        document.querySelectorAll("[data-section]").forEach(elem=>{
+          let box=elem.getBoundingClientRect();
+          if(
+            box.top+halfH<=0 &&
+            box.bottom+halfH>=0
+          ){
+            current=elem.getAttribute("data-section");
+            console.log(current);
+          }
+          
         });
+
+        setActive(current);
       });
     },[]);
+
+    useEffect(()=>{
+      window.location.hash=active;
+    },[active]);
 
     const scrollToSection=(e)=>{
       const sec=(new URL(e.target.href)).hash.slice(1);
@@ -36,10 +55,10 @@ export function SidebarMenu({}){
         </div>
         <nav className="main-nav" role="navigation">
           <ul className="main-menu">
-            <li><a href="#section1" onClick={scrollToSection}>About Me</a></li>
-            <li><a href="#section2" onClick={scrollToSection}>What I’m good at</a></li>
-            <li><a href="#section3" onClick={scrollToSection}>My Work</a></li>
-            <li><a href="#section4" onClick={scrollToSection}>Contact Me</a></li>
+            <li><a href="#section1" className={active=="section1"&&"active"||" "} onClick={scrollToSection}>About Me</a></li>
+            <li><a href="#section2" className={active=="section2"&&"active"||" "}  onClick={scrollToSection}>What I’m good at</a></li>
+            <li><a href="#section3" className={active=="section3"&&"active"||" "}  onClick={scrollToSection}>My Work</a></li>
+            <li><a href="#section4" className={active=="section4"&&"active"||" "}  onClick={scrollToSection}>Contact Me</a></li>
           </ul>
         </nav>
         <div className="social-network">
