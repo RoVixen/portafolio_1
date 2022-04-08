@@ -33,16 +33,18 @@ export function AboutMe({}){
   </section>;
 }
 
-function AboutMeEntry({children,button,img,left=true,divide=true}){
+function AboutMeEntry({children,button=null,img,left=true,divide=true}){
   
   const direction=(left?"left":"right");
   const opposite =(left?"right":"left");
 
   let leftContet=<div className={direction+"-text"}>
     {children}
-    <div className="white-button">
-      <a href="#">{button}</a>
-    </div>
+    {
+      button&&<div className="white-button">
+        <a href="#">{button}</a>
+      </div>
+    }
   </div>
 
   let rightContent=<div className={opposite +"-image"}>
