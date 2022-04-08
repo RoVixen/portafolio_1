@@ -23,7 +23,6 @@ export function SidebarMenu({}){
             box.bottom+halfH>=0
           ){
             current=elem.getAttribute("data-section");
-            console.log(current);
           }
           
         });
@@ -50,17 +49,19 @@ export function SidebarMenu({}){
           <a href="#"><img src="assets/images/author-image.jpg" alt="" /></a>
         </div>
         <div className="author-content">
-          <h4>Reflux Me</h4>
-          <span>Web Designer</span>
+          <h4>Ernesto Pérez</h4>
+          <span>Programador Fullstack</span>
         </div>
         <nav className="main-nav" role="navigation">
           <ul className="main-menu">
-            <li><a href="#section1" className={active=="section1"&&"active"||" "} onClick={scrollToSection}>About Me</a></li>
-            <li><a href="#section2" className={active=="section2"&&"active"||" "}  onClick={scrollToSection}>What I’m good at</a></li>
-            <li><a href="#section3" className={active=="section3"&&"active"||" "}  onClick={scrollToSection}>My Work</a></li>
-            <li><a href="#section4" className={active=="section4"&&"active"||" "}  onClick={scrollToSection}>Contact Me</a></li>
+            <li><a href="#section1" className={active=="section1"&&"active"||" "} onClick={scrollToSection}>Sobre mi</a></li>
+            <li><a href="#section2" className={active=="section2"&&"active"||" "}  onClick={scrollToSection}>En que soy bueno</a></li>
+            <li><a href="#section3" className={active=="section3"&&"active"||" "}  onClick={scrollToSection}>Mi trabajo</a></li>
+            <li><a href="#section4" className={active=="section4"&&"active"||" "}  onClick={scrollToSection}>Contactame</a></li>
           </ul>
         </nav>
+        {
+          /*
         <div className="social-network">
           <ul className="soial-icons">
             <li>
@@ -82,6 +83,8 @@ export function SidebarMenu({}){
             </li>
           </ul>
         </div>
+          */
+        }
         <div className="copyright-text">
           <p>Copyright 2019 Reflux Design</p>
         </div>

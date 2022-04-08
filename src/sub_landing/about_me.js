@@ -1,40 +1,74 @@
 import "./css/about_me.css";
+import aboutMeText from "./texts/about_me.json";
 
 export function AboutMe({}){
-    return <section className="section about-me" data-section="section1">
+  
+  console.log(aboutMeText?.entries?.constructor?.name);
+
+  return <section className="section about-me" data-section="section1">
     <div className="container">
       <div className="section-heading">
-        <h2>About Me</h2>
+        <h2>{aboutMeText.title}</h2>
         <div className="line-dec"></div>
-        <span
-          >This is a Bootstrap v4.2.1 CSS Template for you. Edit and use
-          this layout for your site. Updated on 21 May 2019 for repeated main menu HTML code.</span
-        >
+        <span>
+          {aboutMeText.subtitle}
+        </span>
       </div>
-      <div className="left-image-post">
-        <div className="row">
-          <div className="col-md-6">
-            <div className="left-image">
-              <img src="assets/images/left-image.jpg" alt="" />
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="right-text">
-              <h4>Reflux HTML CSS Template</h4>
-              <p>
-                Donec tristique feugiat lacus, at sollicitudin nunc euismod
-                sed. Mauris viverra, erat non sagittis gravida, elit dui
-                mollis ante, sit amet eleifend purus ligula eget eros. Sed
-                tincidunt quam vitae neque pharetra dignissim eget ut
-                libero.
-              </p>
-              <div className="white-button">
-                <a href="#">Read More</a>
-              </div>
-            </div>
-          </div>
-        </div>
+      {
+        (aboutMeText?.entries?.constructor?.name == "Array")&&
+        aboutMeText.entries.map((entry,index) => {
+          return <AboutMeEntry
+            left={index%2}
+            img={entry.img}
+            button={entry.button}
+            key={"am"+index}
+            divide={index!==0}
+          >
+            <h4>{entry.title}</h4>
+            <p>{entry.content}</p>
+          </AboutMeEntry>
+        })
+      }
+    </div>
+  </section>;
+}
+
+function AboutMeEntry({children,button,img,left=true,divide=true}){
+  
+  const direction=(left?"left":"right");
+  const opposite =(left?"right":"left");
+
+  let leftContet=<div className={direction+"-text"}>
+    {children}
+    <div className="white-button">
+      <a href="#">{button}</a>
+    </div>
+  </div>
+
+  let rightContent=<div className={opposite +"-image"}>
+    <img src={img} alt="" />
+  </div>
+
+  if(direction=="right"){
+    const holder=leftContet;
+    leftContet=rightContent;
+    rightContent=holder;
+  }
+  
+  return <div className={direction+"-image-post "+(!divide?"":"divider-image-post")}>
+    <div className="row">
+      <div className="col-md-6">
+        {leftContet}
       </div>
+      <div className="col-md-6">
+        {rightContent}
+      </div>
+    </div>
+  </div>
+}
+
+/**
+
       <div className="right-image-post">
         <div className="row">
           <div className="col-md-6">
@@ -59,6 +93,4 @@ export function AboutMe({}){
           </div>
         </div>
       </div>
-    </div>
-  </section>;
-}
+ */
