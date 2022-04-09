@@ -56,7 +56,9 @@ export function SidebarMenu({}){
           <ul className="main-menu">
             <li><a href="#section1" className={active=="section1"&&"active"||" "} onClick={scrollToSection}>Sobre mi</a></li>
             <li><a href="#section2" className={active=="section2"&&"active"||" "}  onClick={scrollToSection}>En que soy bueno</a></li>
-            <li><a href="#section3" className={active=="section3"&&"active"||" "}  onClick={scrollToSection}>Mi trabajo</a></li>
+            {
+              //<li><a href="#section3" className={active=="section3"&&"active"||" "}  onClick={scrollToSection}>Mi trabajo</a></li>
+            }
             <li><a href="#section4" className={active=="section4"&&"active"||" "}  onClick={scrollToSection}>Contactame</a></li>
           </ul>
         </nav>

@@ -1,0 +1,15 @@
+{
+    "title":"Contactame",
+    "subtitle":"",
+    "send":{
+        "normal":"Enviar",
+        "loading":"Enviando",
+        "sent":"Correo enviado exitosamente"
+    },
+    "placeholders":{
+        "name":"Su nombre...",
+        "email":"Su Correo...",
+        "subject":"Asunto...",
+        "message":"Mensaje..."
+    }
+}

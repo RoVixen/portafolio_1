@@ -17,8 +17,8 @@ export function MyServices({}){
       </div>
       <div className="row">
         {
-          (myServicesText?.entries?.constructor?.name=="Array")&&myServicesText.entries.map((entry)=>{
-            return <MyServicesEntry>
+          (myServicesText?.entries?.constructor?.name=="Array")&&myServicesText.entries.map((entry,ind)=>{
+            return <MyServicesEntry key={"se"+ind}>
               <h4>{entry.title}</h4>
               <p>{entry.content}</p>
             </MyServicesEntry>
