@@ -43,7 +43,7 @@ export function ContactMe({}){
         setTimeout(()=>{
           setSending(false);
           setSendingText(contactMeText.send.normal);
-        },3000)
+        },5000)
       }
     });
   }
