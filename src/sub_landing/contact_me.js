@@ -58,7 +58,7 @@ export function ContactMe({}){
       <div className="row">
         <div className="right-content">
           <div className="container">
-            <form id="contact" ref={formSendRef}>
+            <form id="contact" ref={formSendRef} onClick={e=>e.preventDefault()}>
               <div className="row">
                 <ContactMeField placeholder={contactMeText.placeholders.name} field={"name"}/>
                 <ContactMeField placeholder={contactMeText.placeholders.email} field={"email"}/>
@@ -80,32 +80,29 @@ export function ContactMe({}){
   </section>
 }
 
-function ContactMeField({type="text",size="6",placeholder,field}){
-
-  function Wrapper(){
-    return <input
-      name={field}
-      type="text"
-      className="form-control"
-      placeholder={placeholder}
-      required=""
-    />
-  }
-  if(type=="textarea"){
-    Wrapper=()=>{
-      return <textarea
-        name={field}
-        rows="6"
-        className="form-control"
-        placeholder={placeholder}
-        required=""
-      ></textarea>
-    }
-  }
+function ContactMeField({type="text",size="6",placeholder,field,onChange}){
 
   return <div className={"col-md-"+size}>
     <fieldset>
-      <Wrapper/>
+      {
+        (type=="textarea")?
+        <textarea
+          name={field}
+          rows="6"
+          className="form-control"
+          placeholder={placeholder}
+          required=""
+          onChange={onChange}
+        ></textarea>:
+        <input
+          name={field}
+          type="text"
+          className="form-control"
+          placeholder={placeholder}
+          required=""
+          onChange={onChange}
+        />
+      }
     </fieldset>
   </div>
 }
