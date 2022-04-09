@@ -3,6 +3,8 @@ import "./css/my_work.css";
 
 
 export function MyWork({}){
+    return null;
+
     const [boxCurrent,setBoxCurrent] = useState("all");
 
     const changedCurrent=(newCurrent="all")=>{

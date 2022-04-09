@@ -1,0 +1,26 @@
+{
+    "title":"En que soy bueno?",
+    "subtitle":"",
+    "entries":[
+        {
+            "title":"Solucionar problemas",
+            "content":"Siempre trato de comprender lo mejor posible mi area de trabajo para poder abordar con buen pie un problema, aveces un compañero me dice \"Trata de hacer esto\" y yo le respondo \"¿Para que?, Si eso no tiene nada que ver\""
+        },
+        {
+            "title":"HTML y CSS",
+            "content":"Recuerdo que fue a mis 17 años que empece a ver html y css, me costo un poco entender el concepto, hasta que entendi que eran lenguajes constructores y no de programacion"
+        },
+        {
+            "title":"PHP",
+            "content":"Aunque php sea un lenguaje viejo, eso no lo hace malo, honestamente pienso que se ha mantenido bastante actualizado siempre, este lo empece a ver junto con el HTML y CSS"
+        },
+        {
+            "title":"NodeJS",
+            "content":"Considero que es una de mis mejores ventajas, NodeJS es un lenguaje bastante versatil en cuanto a programacion web, ademas de que existen bastantes bibliotecas para este"
+        },
+        {
+            "title":"ReactJS y JSX",
+            "content":"Ultimo pero no menos importante, lo considero como lo mejor que pude aprender, la forma en que React mezcla HTML, CSS y Javascript en forma de elementos modulares le da otro sentido a la programacion de una web"
+        }
+    ]
+}
