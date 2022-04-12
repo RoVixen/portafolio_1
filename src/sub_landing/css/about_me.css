@@ -45,3 +45,49 @@
 .left-image-post .white-button {
     margin-top: 30px;
 }
+
+/* Button section*/
+
+.am_btns{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 25px;
+}
+
+/* Agregar Entrada Modal */
+
+.agent_modal_w{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.agent_modal{
+    background-color: #ffffffb0;
+    display: block;
+    align-self: center;
+
+    padding: 25px;
+    width: 50%;
+
+    font-family: 'Lato', sans-serif;
+}
+
+.agent_modal form label{
+    width: 95%;
+    padding-top: 30px;
+    padding-left: 5%;
+}
+
+/*
+.agent_modal img:hover + .img_overlay{
+    
+}
+*/
+    
+@media screen and (max-width:779px) {
+    .agent_modal{
+        width: 88%;
+    }
+}
