@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./css/sidebar_menu.css";
 
+import author_image from "./images/author-image.jpg"
 
 export function SidebarMenu({}){
     const [open,setOpen] = useState(false);
@@ -46,7 +47,7 @@ export function SidebarMenu({}){
       <i className="fa fa-times" id="menu-close" onClick={()=>toggleMenu(false)}></i>
       <div className="container">
         <div className="image">
-          <a href="#"><img src="assets/images/author-image.jpg" alt="" /></a>
+          <a href="#"><img src={author_image} alt="" /></a>
         </div>
         <div className="author-content">
           <h4>Ernesto Pérez</h4>
