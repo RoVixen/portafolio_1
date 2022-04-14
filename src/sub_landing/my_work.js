@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react"
 import "./css/my_work.css";
+import { SectionTitle } from "./props/template_stuff";
 
 
 export function MyWork({}){
@@ -13,15 +14,9 @@ export function MyWork({}){
 
     return <section className="section my-work" data-section="section3">
     <div className="container">
-      <div className="section-heading">
-        <h2>My Work</h2>
-        <div className="line-dec"></div>
-        <span
-          >Aenean sollicitudin ex mauris, lobortis lobortis diam euismod sit
-          amet. Duis ac elit vulputate, lobortis arcu quis, vehicula
-          mauris.</span
-        >
-      </div>
+        
+      <SectionTitle title={"My Work"} subtitle={undefined}/>
+
       <div className="row">
         <div className="isotope-wrapper">
             <MyWorkToolbar changedCurrent={changedCurrent}>

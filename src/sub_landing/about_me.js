@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ModalPortal } from "./props/modal_portal";
 import aboutMeText from "./texts/about_me.json";
 
 import { Image } from "./props/image";
 
 import "./css/about_me.css";
+import { SectionTitle } from "./props/template_stuff";
 
 export function AboutMe({}){
   
@@ -19,26 +20,50 @@ export function AboutMe({}){
   }
 
   const [agregarEntOpen, setAgregarEntOpen] = useState(false)
+  const [agEntClassEff, setAgEntClassEff] = useState("fade-out")
   function agregarEntradaAbrir(e){
-    e.preventDefault()
+    if(e)e.preventDefault()
+    
     setAgregarEntOpen(true)
+    setTimeout(()=>{setAgEntClassEff("fade-in");},10)
   }
 
   function agregarEntradaCerrar(e){
+    if(e)e.preventDefault()
+
+    setAgEntClassEff("fade-out");
+    setTimeout(()=>{
+      setAgregarEntOpen(false)
+    },300)
+  }
+
+  const agregarEntToSave=useRef(null);
+
+  function agregarEntradaFinalizar(e){
     e.preventDefault()
-    setAgregarEntOpen(false)
+
+    let obj={};
+
+    console.clear()
+    agregarEntToSave.current.querySelectorAll("[name]").forEach(element => {
+      if(element.type == "file")
+        obj[element.name]=URL.createObjectURL(element.files[0])
+      else
+        obj[element.name]=element.value
+    });
+
+    setAboutMeArr([...aboutMeArr,obj])
+    agregarEntradaCerrar();
   }
 
   return <section className="section about-me" data-section="section1">
 
     <ModalPortal open={agregarEntOpen}>
-      <div className="agent_modal_w">
+      <div className={"agent_modal_w "+agEntClassEff}>
         <div className="agent_modal">
-          <div style={{display:"flex",justifyContent:"space-between"}}>
-            <h3>Agregue una entrada a "Sobre mi"</h3>
-            <h5 onClick={(e)=>agregarEntradaCerrar(e)} style={{cursor:"pointer"}}>X</h5>
-          </div>
-          <form>
+          <div className="close" onClick={agregarEntradaCerrar}>+</div>
+          <SectionTitle title={"Agregue una entrada a \"Sobre mí\""} subtitle={aboutMeText.subtitle}/>
+          <form ref={agregarEntToSave}>
             <label>
               <h5>Titulo</h5>
               <input className="form-control" type={"text"} name="title" autoComplete="false"></input>
@@ -47,20 +72,23 @@ export function AboutMe({}){
               <h5>Texto</h5>
               <textarea className="form-control" name="content" autoComplete="false"></textarea>
             </label>
-            <Image/>
+            <div className="label_like">
+              <h5>Imagen</h5>
+              <Image name="img"/>
+            </div>
+            <div className="am_btns">
+              <button className="button" onClick={agregarEntradaFinalizar}>
+                Agregar
+              </button>
+            </div>
           </form>
         </div>
       </div>
     </ModalPortal>
 
     <div className="container">
-      <div className="section-heading">
-        <h2>{aboutMeText.title}</h2>
-        <div className="line-dec"></div>
-        <span>
-          {aboutMeText.subtitle}
-        </span>
-      </div>
+
+      <SectionTitle title={aboutMeText.title} subtitle={aboutMeText.subtitle}/>
 
       
       <div className="am_btns">

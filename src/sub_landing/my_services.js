@@ -1,4 +1,5 @@
 import "./css/my_services.css";
+import { SectionTitle } from "./props/template_stuff";
 
 import myServicesText from "./texts/my_services.json";
 
@@ -8,13 +9,8 @@ export function MyServices({}){
 
   return <section className="section my-services" data-section="section2">
     <div className="container">
-      <div className="section-heading">
-        <h2>{myServicesText.title}</h2>
-        <div className="line-dec"></div>
-        <span>
-          {myServicesText.subtitle}
-        </span>
-      </div>
+      <SectionTitle title={myServicesText.title} subtitle={myServicesText.subtitle}/>
+      
       <div className="row">
         {
           (myServicesText?.entries?.constructor?.name=="Array")&&myServicesText.entries.map((entry,ind)=>{

@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import "./css/image.css"
 import noimg from "../images/no-img.jpg"
 
-export function Image({src,onFileChanged}){
+export function Image({src,onFileChanged,name}){
 
     const [currentSrc, setCurrentSrc] = useState(src||noimg)
 
@@ -17,8 +17,7 @@ export function Image({src,onFileChanged}){
     }
 
     return <label htmlFor="am_img_uploader">
-        <h5>Imagen</h5>
-        <input onChange={uploadHandler} hidden type={"file"} id="am_img_uploader" name="img" autoComplete="false" accept="image/*"></input>
+        <input onChange={uploadHandler} hidden type={"file"} id="am_img_uploader" name={name} autoComplete="false" accept="image/*"></input>
         <div className="img_wrapper">
         <div className="img_overlay">
             <div className="centerer">

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./css/contact_me.css";
+import { SectionTitle } from "./props/template_stuff";
 
 import contactMeText from "./texts/contact_me.json";
 
@@ -50,11 +51,7 @@ export function ContactMe({}){
 
   return <section className="section contact-me" data-section="section4">
     <div className="container">
-      <div className="section-heading">
-        <h2>{contactMeText.title}</h2>
-        <div className="line-dec"></div>
-        <span>{contactMeText.subtitle}</span>
-      </div>
+      <SectionTitle title={contactMeText.title} subtitle={contactMeText.subtitle}/>
       <div className="row">
         <div className="right-content">
           <div className="container">
