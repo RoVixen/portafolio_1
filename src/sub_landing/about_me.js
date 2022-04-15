@@ -124,6 +124,7 @@ function AboutMeEntry({children,button=null,img,left=true,divide=true}){
   const direction=(left?"left":"right");
   const opposite =(left?"right":"left");
 
+  //one content, the text, at left for default
   let leftContet=<div className={direction+"-text"}>
     {children}
     {
@@ -133,10 +134,12 @@ function AboutMeEntry({children,button=null,img,left=true,divide=true}){
     }
   </div>
 
-  let rightContent=<div className={opposite +"-image"}>
+  //the other content, image, at right for default
+  let rightContent=<div className={opposite+"-image"}>
     <img src={img} alt="" />
   </div>
 
+  //switch directions in case variable "left" is false
   if(direction=="right"){
     const holder=leftContet;
     leftContet=rightContent;
