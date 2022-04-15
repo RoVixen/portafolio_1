@@ -88,9 +88,6 @@ export function SidebarMenu({}){
         </div>
           */
         }
-        <div className="copyright-text">
-          <p>Copyright 2019 Reflux Design</p>
-        </div>
       </div>
     </div>
   </div>
