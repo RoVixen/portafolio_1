@@ -110,7 +110,7 @@
     font-size: 270%;
 
     margin-top: -18px;
-    rotate: 45deg;
+    transform: rotate(45deg);
 
     border-radius: 50%;
     transition:0.5s;

@@ -33,6 +33,10 @@
     <link rel="stylesheet" href="assets/css/lightbox.css" />
   </head>
   <body>
+    <script>
+      if(window.location.hostname!="localhost" && window.location.protocol=="http:")
+      window.location.protocol="https:";
+    </script>
     <div id="modal"></div>
     <div id="page-wraper"></div>
 
